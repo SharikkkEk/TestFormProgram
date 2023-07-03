@@ -45,7 +45,7 @@ namespace TestFormProgram
             this.multiplicationButton = new System.Windows.Forms.Button();
             this.divisionButton = new System.Windows.Forms.Button();
             this.eraseButton = new System.Windows.Forms.Button();
-            this.resultButton = new System.Windows.Forms.Button();
+            this.coma_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -81,6 +81,7 @@ namespace TestFormProgram
             this.n6.TabIndex = 15;
             this.n6.Text = "6";
             this.n6.UseWaitCursor = true;
+            this.n6.Click += new System.EventHandler(this.n6_Click);
             // 
             // n2
             // 
@@ -229,23 +230,23 @@ namespace TestFormProgram
             this.eraseButton.UseWaitCursor = true;
             this.eraseButton.Click += new System.EventHandler(this.eraseButton_Click);
             // 
-            // resultButton
+            // coma_button
             // 
-            this.resultButton.Location = new System.Drawing.Point(174, 245);
-            this.resultButton.Name = "resultButton";
-            this.resultButton.Size = new System.Drawing.Size(75, 55);
-            this.resultButton.TabIndex = 17;
-            this.resultButton.Text = "Результат";
-            this.resultButton.UseVisualStyleBackColor = true;
-            this.resultButton.UseWaitCursor = true;
-            this.resultButton.Click += new System.EventHandler(this.resultButton_Click);
+            this.coma_button.Location = new System.Drawing.Point(174, 248);
+            this.coma_button.Name = "coma_button";
+            this.coma_button.Size = new System.Drawing.Size(75, 55);
+            this.coma_button.TabIndex = 17;
+            this.coma_button.Text = ",";
+            this.coma_button.UseVisualStyleBackColor = true;
+            this.coma_button.UseWaitCursor = true;
+            this.coma_button.Click += new System.EventHandler(this.coma_button_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 312);
-            this.Controls.Add(this.resultButton);
+            this.Controls.Add(this.coma_button);
             this.Controls.Add(this.eraseButton);
             this.Controls.Add(this.divisionButton);
             this.Controls.Add(this.multiplicationButton);
@@ -291,7 +292,7 @@ namespace TestFormProgram
         private System.Windows.Forms.Button multiplicationButton;
         private System.Windows.Forms.Button divisionButton;
         private System.Windows.Forms.Button eraseButton;
-        private System.Windows.Forms.Button resultButton;
+        private System.Windows.Forms.Button coma_button;
     }
 }
 

@@ -12,6 +12,8 @@ namespace TestFormProgram
 {
     public partial class Form1 : Form
     {
+        private double number = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -74,36 +76,39 @@ namespace TestFormProgram
             number_click("0");
         }
 
+        private void coma_button_Click(object sender, EventArgs e)
+        {
+            number_click(",");
+        }
+
         private void plusButton_Click(object sender, EventArgs e)
         {
-            number_click("+");
+            math_click("+");
         }
 
         private void minusButton_Click(object sender, EventArgs e)
         {
-            number_click("-");
+            math_click("-");
         }
 
         private void multiplicationButton_Click(object sender, EventArgs e)
         {
-            number_click("*");
+            math_click("*");
         }
 
         private void divisionButton_Click(object sender, EventArgs e)
         {
-            number_click("/");
+            math_click("/");
         }
 
         private void eraseButton_Click(object sender, EventArgs e)
         {
-            int textLength = textBox1.Text.Length;
+            int textLength = textBox1.Text.Length - 1;
 
-            textBox1.Text = textBox1.Text[1..textLength];
-        }
-
-        private void resultButton_Click(object sender, EventArgs e)
-        {
-            
+            if (textBox1.Text.Length != 0)
+            {
+                textBox1.Text = textBox1.Text[0..textLength];
+            }
         }
 
         public void number_click(string symbol)
@@ -118,5 +123,26 @@ namespace TestFormProgram
             }
         }
 
+        private void math_click(string symbol)
+        {
+            if (number == 0)
+            {
+                string stringNumber = textBox1.Text;
+
+                number = Convert.ToDouble(stringNumber);
+
+                textBox1.Text = "0";
+            }
+            else if (number != 0)
+            {
+                string predRez = $"{Convert.ToString(number).Replace(",",".")}{symbol}{textBox1.Text.Replace(",", ".")}";
+
+                double rez = Convert.ToDouble(new DataTable().Compute(predRez, ""));
+
+                textBox1.Text = Convert.ToString(rez);
+
+                number = 0;
+            }
+        }
     }
 }
